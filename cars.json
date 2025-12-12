@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1001,
+    "make": "BMW",
+    "model": "320d",
+    "year": 2019,
+    "km": 85000,
+    "price": 21900,
+    "fuel": "Diesel",
+    "gearbox": "Automatic",
+    "location": "Antwerp",
+    "description": "Full service history. Clean car.",
+    "garage": { "name": "Garage De Smet", "phone": "+32 470 00 00 00", "email": "info@garagedesmet.be" },
+    "images": ["/images/car1.jpg"]
+  },
+  {
+    "id": 1002,
+    "make": "Audi",
+    "model": "A4",
+    "year": 2018,
+    "km": 99000,
+    "price": 18900,
+    "fuel": "Petrol",
+    "gearbox": "Manual",
+    "location": "Brussels",
+    "description": "Very good condition.",
+    "garage": { "name": "Brussels Auto", "phone": "+32 480 00 00 00", "email": "sales@brusselsauto.be" },
+    "images": ["/images/car2.jpg"]
+  }
+]
