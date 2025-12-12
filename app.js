@@ -13,24 +13,67 @@ function uniq(arr) {
 
 function renderCard(car) {
   const img = car.images?.[0] || "";
+  const title = `${car.make} ${car.model}`;
+  const subtitle = `${car.year} • ${car.km.toLocaleString()} km • ${car.fuel} • ${car.gearbox}`;
+  const price = `€${car.price.toLocaleString()}`;
+
   return `
-    <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,.45)]">
-      <div class="h-44 bg-white/5">
-        ${img ? `<img src="${img}" alt="" class="h-full w-full object-cover" />` : ``}
+  <article class="flex gap-4 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,.45)]">
+    <!-- left: image -->
+    <a href="car.html?id=${car.id}" class="relative block h-40 w-56 shrink-0 bg-white/5">
+      ${img ? `<img src="${img}" alt="${title}" class="h-full w-full object-cover" />` : ``}
+      <div class="absolute left-3 top-3 rounded-full bg-black/45 px-2 py-1 text-[11px] text-white backdrop-blur">
+        ${car.fuel}
       </div>
-      <div class="p-4">
-        <h3 class="text-base font-semibold tracking-tight">${car.make} ${car.model}</h3>
-        <div class="mt-2 text-xs text-slate-300">${car.year} • ${car.km.toLocaleString()} km • ${car.fuel} • ${car.gearbox}</div>
-        <div class="mt-3 text-lg font-semibold">€${car.price.toLocaleString()}</div>
-        <div class="mt-1 text-xs text-slate-400">${car.location}</div>
-        <a class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90"
-           href="car.html?id=${car.id}">
-          View
+    </a>
+
+    <!-- middle: details -->
+    <div class="flex min-w-0 flex-1 flex-col py-4">
+      <a href="car.html?id=${car.id}" class="truncate text-base font-semibold tracking-tight text-white hover:text-white/90">
+        ${title}
+      </a>
+
+      <div class="mt-1 text-xs text-slate-300">${subtitle}</div>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-200">
+          ${car.location}
+        </span>
+        <span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
+          Garage
+        </span>
+        <span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">
+          Verified
+        </span>
+      </div>
+
+      <div class="mt-auto pt-3 text-[11px] text-slate-400">
+        No sponsored results • Ranked by relevance
+      </div>
+    </div>
+
+    <!-- right: price + CTA (autoscout-like) -->
+    <div class="flex w-44 flex-col justify-between border-l border-white/10 p-4">
+      <div class="text-right">
+        <div class="text-lg font-semibold text-white">${price}</div>
+        <div class="mt-1 text-[11px] text-slate-400">incl. VAT (if applicable)</div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <a href="car.html?id=${car.id}"
+           class="inline-flex items-center justify-center rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90">
+          View details
+        </a>
+        <a href="search.html"
+           class="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-white/5">
+          Save
         </a>
       </div>
-    </article>
+    </div>
+  </article>
   `;
 }
+
 
 
 function applyFilters(cars) {
