@@ -12,20 +12,26 @@ function uniq(arr) {
 }
 
 function renderCard(car) {
-  const img = car.images?.[0] || '';
+  const img = car.images?.[0] || "";
   return `
-    <article class="card">
-      <div class="thumb">${img ? `<img src="${img}" alt="">` : ''}</div>
-      <div class="card-body">
-        <h3>${car.make} ${car.model}</h3>
-        <div class="meta">${car.year} • ${car.km.toLocaleString()} km • ${car.fuel} • ${car.gearbox}</div>
-        <div class="price">€${car.price.toLocaleString()}</div>
-        <div class="meta">${car.location}</div>
-        <a class="btn" href="car.html?id=${car.id}">View</a>
+    <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,.45)]">
+      <div class="h-44 bg-white/5">
+        ${img ? `<img src="${img}" alt="" class="h-full w-full object-cover" />` : ``}
+      </div>
+      <div class="p-4">
+        <h3 class="text-base font-semibold tracking-tight">${car.make} ${car.model}</h3>
+        <div class="mt-2 text-xs text-slate-300">${car.year} • ${car.km.toLocaleString()} km • ${car.fuel} • ${car.gearbox}</div>
+        <div class="mt-3 text-lg font-semibold">€${car.price.toLocaleString()}</div>
+        <div class="mt-1 text-xs text-slate-400">${car.location}</div>
+        <a class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90"
+           href="car.html?id=${car.id}">
+          View
+        </a>
       </div>
     </article>
   `;
 }
+
 
 function applyFilters(cars) {
   const make = document.getElementById('make')?.value || '';
