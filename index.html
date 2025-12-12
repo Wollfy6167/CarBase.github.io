@@ -4,105 +4,125 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FairCar — No sponsored results. Flat rate for garages.</title>
-  <meta name="description" content="FairCar is a fair used-car marketplace. No sponsored results, no pay-to-win. Same flat rate for every garage." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="A fair used-car marketplace. No sponsored results, no pay-to-win. Same flat rate for every garage." />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="min-h-screen bg-slate-950 text-slate-100">
 
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <a class="logo" href="index.html">FairCar</a>
-    <nav>
-      <a href="search.html">Search cars</a>
-      <a href="garages.html">For garages</a>
-      <a href="pricing.html">Pricing</a>
-    </nav>
+  <!-- Background glow -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-40 left-10 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl"></div>
+    <div class="absolute top-10 right-0 h-[420px] w-[420px] rounded-full bg-white/5 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_0_6px_rgba(255,255,255,0.08)]"></span>
+        <span class="text-sm font-semibold tracking-tight">FairCar</span>
+      </a>
+      <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+        <a class="hover:text-white" href="search.html">Search cars</a>
+        <a class="hover:text-white" href="garages.html">For garages</a>
+        <a class="hover:text-white" href="pricing.html">Pricing</a>
+        <a class="hover:text-white" href="fair-use-charter.html">Charter</a>
+      </nav>
+      <a href="search.html"
+         class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90">
+        Browse cars
+      </a>
+    </div>
   </header>
 
-  <!-- HERO -->
-  <section class="container">
-    <h1 style="font-size:2.4rem;margin-bottom:10px;">
-      A fair car marketplace.
-    </h1>
-    <p style="font-size:1.2rem;max-width:700px;">
-      No sponsored results. No pay-to-win.<br>
-      Same flat price for every garage.
-    </p>
+  <main class="mx-auto max-w-6xl px-4">
+    <!-- Hero -->
+    <section class="py-14 md:py-20">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
+        <span class="h-1.5 w-1.5 rounded-full bg-white/70"></span>
+        No sponsored results • Flat rate for garages
+      </div>
 
-    <div style="margin:24px 0;">
-      <a class="btn" href="search.html">Search cars</a>
-      <a class="btn" href="garages.html">List your cars</a>
-    </div>
-  </section>
+      <h1 class="mt-6 text-4xl font-semibold tracking-tight md:text-6xl">
+        A premium car marketplace<br class="hidden md:block" />
+        that stays fair.
+      </h1>
 
-  <!-- TRUST STRIP -->
-  <section class="container">
-    <div class="panel">
-      <strong>Why FairCar exists</strong>
-      <p>
-        Too many car platforms charge more when garages sell more.
-        We believe that success should not be punished.
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+        No pay-to-win. No boosts. No visibility tricks.
+        Cars are ranked by relevance — not by who pays more.
       </p>
-      <ul>
-        <li>🔒 No paid ranking</li>
-        <li>⚖️ Same exposure for every garage</li>
-        <li>📄 Public Fair Use Charter</li>
-      </ul>
-      <a href="fair-use-charter.html">Read our Fair Use Charter →</a>
-    </div>
-  </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="container">
-    <h2>How it works</h2>
-    <div class="grid">
-      <div class="panel">
-        <strong>For buyers</strong>
-        <p>
-          Search cars honestly.<br>
-          Results are ranked by relevance — not by money.
-        </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="search.html"
+           class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-white/90">
+          Search cars
+        </a>
+        <a href="garages.html"
+           class="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
+          List your cars (garages)
+        </a>
+        <a href="fair-use-charter.html"
+           class="rounded-full border border-white/15 bg-transparent px-5 py-3 text-sm font-semibold text-slate-200 hover:bg-white/5">
+          Read the Charter
+        </a>
       </div>
-      <div class="panel">
-        <strong>For garages</strong>
-        <p>
-          Flat monthly rate.<br>
-          Unlimited listings.<br>
-          Cancel anytime.
-        </p>
+
+      <!-- Stats -->
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div class="text-sm text-slate-300">Trust-first ranking</div>
+          <div class="mt-2 text-xl font-semibold">No paid visibility</div>
+          <div class="mt-2 text-sm text-slate-400">Relevance only — always.</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div class="text-sm text-slate-300">Garage-friendly pricing</div>
+          <div class="mt-2 text-xl font-semibold">Flat monthly rate</div>
+          <div class="mt-2 text-sm text-slate-400">Same price for every garage.</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div class="text-sm text-slate-300">Public rules</div>
+          <div class="mt-2 text-xl font-semibold">Fair Use Charter</div>
+          <div class="mt-2 text-sm text-slate-400">No surprises later.</div>
+        </div>
       </div>
-      <div class="panel">
-        <strong>For everyone</strong>
-        <p>
-          Transparent rules.<br>
-          No hidden algorithms.<br>
-          No surprises.
+    </section>
+
+    <!-- Trust section -->
+    <section class="pb-16">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-7 md:p-10">
+        <h2 class="text-2xl font-semibold tracking-tight">Why we exist</h2>
+        <p class="mt-3 max-w-3xl text-slate-300">
+          Many platforms punish garages for success with rising fees, boosts, and paywalls.
+          We built FairCar to stay predictable and fair — for the long run.
         </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">No boosts</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">No sponsored listings</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">Cancel anytime</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">Export anytime</span>
+        </div>
+        <div class="mt-8">
+          <a href="garages.html"
+             class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-white/90">
+            Garages: Join early
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="container">
-    <div class="panel">
-      <h2>Garages: stop paying more because you sell more</h2>
-      <p>
-        Join FairCar early. We list your cars for you.
-        No exclusivity. No risk.
-      </p>
-      <a class="btn" href="garages.html">Join as a garage</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="container" style="margin-top:40px;">
-    <hr/>
-    <p style="font-size:14px;color:#666;">
-      © FairCar — Built for fairness, not extraction.<br>
-      <a href="fair-use-charter.html">Fair Use Charter</a> ·
-      <a href="pricing.html">Pricing</a>
-    </p>
-  </footer>
-
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div>© FairCar — built for fairness, not extraction.</div>
+        <div class="flex gap-5">
+          <a class="hover:text-white" href="pricing.html">Pricing</a>
+          <a class="hover:text-white" href="fair-use-charter.html">Charter</a>
+          <a class="hover:text-white" href="garages.html">For garages</a>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
