@@ -18,18 +18,22 @@ function renderCard(car) {
   const price = `€${car.price.toLocaleString()}`;
 
   return `
-  <article class="flex gap-4 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,.45)]">
-    <!-- left: image -->
-    <a href="car.html?id=${car.id}" class="relative block h-40 w-56 shrink-0 bg-white/5">
+  <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,.45)]
+                  flex flex-col md:flex-row md:gap-4">
+    
+    <!-- image -->
+    <a href="car.html?id=${car.id}" class="relative block bg-white/5
+                                        h-48 w-full md:h-40 md:w-56 md:shrink-0">
       ${img ? `<img src="${img}" alt="${title}" class="h-full w-full object-cover" />` : ``}
       <div class="absolute left-3 top-3 rounded-full bg-black/45 px-2 py-1 text-[11px] text-white backdrop-blur">
         ${car.fuel}
       </div>
     </a>
 
-    <!-- middle: details -->
-    <div class="flex min-w-0 flex-1 flex-col py-4">
-      <a href="car.html?id=${car.id}" class="truncate text-base font-semibold tracking-tight text-white hover:text-white/90">
+    <!-- details -->
+    <div class="min-w-0 flex-1 px-4 py-4 md:px-0">
+      <a href="car.html?id=${car.id}"
+         class="block truncate text-base font-semibold tracking-tight text-white hover:text-white/90">
         ${title}
       </a>
 
@@ -47,32 +51,34 @@ function renderCard(car) {
         </span>
       </div>
 
-      <div class="mt-auto pt-3 text-[11px] text-slate-400">
+      <div class="mt-4 text-[11px] text-slate-400">
         No sponsored results • Ranked by relevance
       </div>
     </div>
 
-    <!-- right: price + CTA (autoscout-like) -->
-    <div class="flex w-44 flex-col justify-between border-l border-white/10 p-4">
-      <div class="text-right">
+    <!-- price + CTA -->
+    <div class="border-t border-white/10 p-4 md:w-44 md:border-l md:border-t-0">
+      <div class="flex items-start justify-between md:block md:text-right">
         <div class="text-lg font-semibold text-white">${price}</div>
-        <div class="mt-1 text-[11px] text-slate-400">incl. VAT (if applicable)</div>
+        <div class="text-[11px] text-slate-400 md:mt-1">incl. VAT (if applicable)</div>
       </div>
 
-      <div class="flex flex-col gap-2">
+      <div class="mt-3 flex gap-2 md:mt-4 md:flex-col">
         <a href="car.html?id=${car.id}"
-           class="inline-flex items-center justify-center rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90">
-          View details
+           class="flex-1 inline-flex items-center justify-center rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-white/90">
+          View
         </a>
-        <a href="search.html"
-           class="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-white/5">
+        <button type="button"
+           class="flex-1 inline-flex items-center justify-center rounded-2xl border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-white/5">
           Save
-        </a>
+        </button>
       </div>
     </div>
+
   </article>
   `;
 }
+
 
 
 
