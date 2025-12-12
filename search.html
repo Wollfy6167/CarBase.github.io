@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search cars</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">YourSite</a>
+    <nav><a href="pricing.html">Pricing</a> <a href="garages.html">For garages</a></nav>
+  </header>
+
+  <main class="container">
+    <h1>Search</h1>
+
+    <section class="filters">
+      <select id="make"><option value="">Make (all)</option></select>
+      <select id="fuel">
+        <option value="">Fuel (all)</option>
+        <option>Diesel</option><option>Petrol</option><option>Hybrid</option><option>Electric</option>
+      </select>
+      <select id="gearbox">
+        <option value="">Gearbox (all)</option>
+        <option>Manual</option><option>Automatic</option>
+      </select>
+
+      <input id="minPrice" type="number" placeholder="Min €" />
+      <input id="maxPrice" type="number" placeholder="Max €" />
+      <input id="maxKm" type="number" placeholder="Max km" />
+      <input id="minYear" type="number" placeholder="Min year" />
+
+      <button id="apply">Apply</button>
+    </section>
+
+    <section id="results" class="grid"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
