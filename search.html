@@ -1,40 +1,74 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Search cars</title>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header class="topbar">
-    <a class="logo" href="index.html">YourSite</a>
-    <nav><a href="pricing.html">Pricing</a> <a href="garages.html">For garages</a></nav>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_0_6px_rgba(255,255,255,0.08)]"></span>
+        <span class="text-sm font-semibold tracking-tight">FairCar</span>
+      </a>
+      <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+        <a class="hover:text-white" href="search.html">Search</a>
+        <a class="hover:text-white" href="garages.html">For garages</a>
+        <a class="hover:text-white" href="pricing.html">Pricing</a>
+      </nav>
+      <a href="fair-use-charter.html" class="text-sm text-slate-300 hover:text-white">Charter</a>
+    </div>
   </header>
 
-  <main class="container">
-    <h1>Search</h1>
+  <main class="mx-auto max-w-6xl px-4 py-8">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-semibold tracking-tight">Search</h1>
+        <p class="mt-2 text-sm text-slate-300">No sponsored results. Ranked by relevance.</p>
+      </div>
+    </div>
 
-    <section class="filters">
-      <select id="make"><option value="">Make (all)</option></select>
-      <select id="fuel">
-        <option value="">Fuel (all)</option>
-        <option>Diesel</option><option>Petrol</option><option>Hybrid</option><option>Electric</option>
-      </select>
-      <select id="gearbox">
-        <option value="">Gearbox (all)</option>
-        <option>Manual</option><option>Automatic</option>
-      </select>
+    <!-- Filters -->
+    <section class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4 md:p-5">
+      <div class="grid gap-3 md:grid-cols-6">
+        <select id="make" class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100">
+          <option value="">Make (all)</option>
+        </select>
 
-      <input id="minPrice" type="number" placeholder="Min €" />
-      <input id="maxPrice" type="number" placeholder="Max €" />
-      <input id="maxKm" type="number" placeholder="Max km" />
-      <input id="minYear" type="number" placeholder="Min year" />
+        <select id="fuel" class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100">
+          <option value="">Fuel (all)</option>
+          <option>Diesel</option><option>Petrol</option><option>Hybrid</option><option>Electric</option>
+        </select>
 
-      <button id="apply">Apply</button>
+        <select id="gearbox" class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100">
+          <option value="">Gearbox (all)</option>
+          <option>Manual</option><option>Automatic</option>
+        </select>
+
+        <input id="minPrice" type="number" placeholder="Min €"
+               class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100 placeholder:text-slate-500"/>
+
+        <input id="maxPrice" type="number" placeholder="Max €"
+               class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100 placeholder:text-slate-500"/>
+
+        <button id="apply"
+                class="rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-slate-950 hover:bg-white/90">
+          Apply
+        </button>
+      </div>
+
+      <div class="mt-3 grid gap-3 md:grid-cols-2">
+        <input id="maxKm" type="number" placeholder="Max km"
+               class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100 placeholder:text-slate-500"/>
+        <input id="minYear" type="number" placeholder="Min year"
+               class="rounded-2xl border border-white/10 bg-slate-950/40 px-3 py-3 text-sm text-slate-100 placeholder:text-slate-500"/>
+      </div>
     </section>
 
-    <section id="results" class="grid"></section>
+    <!-- Results -->
+    <section id="results" class="mt-6 grid gap-4 md:grid-cols-3"></section>
   </main>
 
   <script src="app.js"></script>
